@@ -3,3 +3,4 @@
 
 # Project owner
 /Dockerfiles/devilbox/         @cytopia
+/Dockerfiles/devilbox-docker-php-fpm-personal/ @boumanb

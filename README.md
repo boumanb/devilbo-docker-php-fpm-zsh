@@ -22,12 +22,17 @@ Find the currently available projects here. Click on the project for correspondi
 | Project                               | Author                                          | build                                         | Architecture                          | Docker Tag                   |
 |---------------------------------------|-------------------------------------------------|-----------------------------------------------|---------------------------------------|------------------------------|
 | :file_folder: [devilbox/]             | :octocat: [cytopia] (cytopia)                   | [![devilbox_build]](https://github.com/devilbox/docker-php-fpm-community/actions/workflows/devilbox_action.yml)<br/>[![devilbox_nightly]](https://github.com/devilbox/docker-php-fpm-community/actions/workflows/devilbox_action_schedule.yml)| :computer: amd64<br/>:computer: arm64 | `<V>-devilbox`               |
+| :file_folder: [devilbox-docker-php-fpm-personal/]| :octocat: [boumanb] (Billy Bouman)              | [![devilbox-docker-php-fpm-personal_build]](https://github.com/devilbox/docker-php-fpm-community/actions/workflows/devilbox-docker-php-fpm-personal_action.yml)<br/>[![devilbox-docker-php-fpm-personal_nightly]](https://github.com/devilbox/docker-php-fpm-community/actions/workflows/devilbox-docker-php-fpm-personal_action_schedule.yml)| :computer: amd64<br/>:computer: arm64 | `<V>-devilbox`               |
 
 
 [devilbox/]: Dockerfiles/devilbox
 [cytopia]: https://github.com/cytopia
 [devilbox_build]: https://github.com/devilbox/docker-php-fpm-community/workflows/devilbox_build/badge.svg
 [devilbox_nightly]: https://github.com/devilbox/docker-php-fpm-community/workflows/devilbox_nightly/badge.svg
+[devilbox-docker-php-fpm-personal/]: Dockerfiles/devilbox-docker-php-fpm-personal
+[boumanb]: https://github.com/boumanb
+[devilbox-docker-php-fpm-personal_build]: https://github.com/devilbox/docker-php-fpm-community/workflows/devilbox-docker-php-fpm-personal_build/badge.svg
+[devilbox-docker-php-fpm-personal_nightly]: https://github.com/devilbox/docker-php-fpm-community/workflows/devilbox-docker-php-fpm-personal_nightly/badge.svg
 > <sup> :information_source: `<V>` in the Docker tag above stands for the PHP version. E.g.: `5.4` or `8.1`, etc</sup>
 <!-- PROJECTS_END -->
 
