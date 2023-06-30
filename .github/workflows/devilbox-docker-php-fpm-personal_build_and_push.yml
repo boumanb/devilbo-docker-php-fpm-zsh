@@ -3,7 +3,7 @@ name: devilbox-docker-php-fpm-personal_build_and_push
 on:
   push:
     branches:
-      - "main"g
+      - "main"
 
 jobs:
   build:
