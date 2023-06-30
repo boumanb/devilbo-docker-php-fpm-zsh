@@ -1,11 +1,9 @@
 if [ -d /etc/bashrc-devilbox.d/ ]; then
-    shopt -s nullglob
-    for f in /etc/bashrc-devilbox.d/*.sh ; do
+    for f in /etc/bashrc-devilbox.d/^*.sh(N); do
         if [ -e "${f}" ] && [ -r "${f}" ]; then
             . "${f}"
         fi
     done
-    shopt -u nullglob
     unset f
 fi
 
