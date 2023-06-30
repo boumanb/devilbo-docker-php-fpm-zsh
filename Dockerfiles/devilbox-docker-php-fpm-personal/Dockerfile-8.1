@@ -42,6 +42,24 @@ LABEL "org.opencontainers.image.description"="PHP-FPM 8.1-community"
 RUN set -eux \
 	&& true
 
+USER devilbox
+RUN sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --skip-chsh --unattended --keep-zshrc \
+	&& git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-/home/devilbox/.oh-my-zsh/custom}/themes/powerlevel10k \
+	&& git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-/home/devilbox/.oh-my-zsh/custom}/plugins/zsh-autosuggestions \
+	&& git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-/home/devilbox/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting \
+	&& git clone https://github.com/TamCore/autoupdate-oh-my-zsh-plugins ${ZSH_CUSTOM:-/home/devilbox/.oh-my-zsh/custom}/plugins/autoupdate
+USER root
+
+# Files with '.' won't be copied
+COPY ./data/zshrc ./data/p10k.zsh ./data/gitstatusd-linux-x86_64 /home/devilbox/
+
+RUN mv /home/devilbox/zshrc /home/devilbox/.zshrc \
+	&& mv /home/devilbox/p10k.zsh /home/devilbox/.p10k.zsh
+RUN mkdir -p /home/devilbox/.cache/gitstatus \
+	&& mv /home/devilbox/gitstatusd-linux-x86_64 /home/devilbox/.cache/gitstatus/gitstatusd-linux-x86_64
+RUN chown devilbox:devilbox /home/devilbox/.zshrc \
+	&& chown devilbox:devilbox /home/devilbox/.p10k.zsh \
+	&& chown devilbox:devilbox /home/devilbox/.cache/gitstatus/gitstatusd-linux-x86_64
 
 #--------------------------------------------------------------------------------------------------
 # END OF CUSTOM CODE
