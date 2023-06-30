@@ -21,7 +21,8 @@ include $(MAKEFILES)
 # Default configuration
 # -------------------------------------------------------------------------------------------------
 # Own vars
-TAG        = latest
+TAG              = latest
+FORCE_TAG        = false
 
 # Makefile.docker overwrites
 NAME       = PHP
@@ -30,10 +31,14 @@ IMAGE      = devilbox/php-fpm-community
 FLAVOUR    = devilbox
 FILE       = Dockerfile-$(VERSION)
 DIR        = Dockerfiles/$(FLAVOUR)
-ifeq ($(strip $(TAG)),latest)
-	DOCKER_TAG = $(VERSION)-$(FLAVOUR)
+
+# if FORCE_TAG is set to true, we will not overwrite the TAG variable
+ifeq ($(FORCE_TAG),true)
+	DOCKER_TAG = $(TAG)
+else ifeq ($(strip $(TAG)),latest)
+	DOCKER_TAG = $(VERSION)
 else
-	DOCKER_TAG = $(VERSION)-$(FLAVOUR)-$(TAG)
+	DOCKER_TAG = $(VERSION)-$(TAG)
 endif
 ARCH       = linux/amd64
 
